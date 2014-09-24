@@ -6,3 +6,4 @@ notifications:
         - builds@fitbur.com
     on-success: change
     on-failure: always
+
