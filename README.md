@@ -1,4 +1,4 @@
-FitburIO Famework [![Build Status](https://travis-ci.org/FitburIO/framework.svg?branch=master)](https://travis-ci.org/FitburIO/framework)
+FitburIO Famework
 =================
 
 
