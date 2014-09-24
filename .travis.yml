@@ -1,0 +1,9 @@
+language: java
+jdk:
+  - oraclejdk7
+  - openjdk7
+notifications:
+    email:
+        - builds@fitbur.com
+    on-success: change
+    on-failure: always
