@@ -89,8 +89,8 @@
     
     <scm>
         <url>https://github.com/FitburIO/framework</url>
-        <connection>scm:git:git://github.com/FitburIO/framework</connection>
-        <developerConnection>scm:git:git@github.com:FitburIO/framework</developerConnection>
+        <connection>scm:git:git@github.com:FitburIO/framework.git</connection>
+        <developerConnection>scm:git:git@github.com:FitburIO/framework.git</developerConnection>
     </scm>
     
     <developers>
