@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.fitbur.core</groupId>
         <artifactId>core-el</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>0.5.0-SNAPSHOT</version>
     </parent>
     <artifactId>core-el-api</artifactId>
     
