@@ -43,11 +43,6 @@ import java.lang.annotation.Target;
 public @interface ExceptionMetered {
 
     /**
-     * The default suffix for meter names.
-     */
-    String DEFAULT_NAME_SUFFIX = "exceptions";
-
-    /**
      * @return The name of the meter. If not specified, the meter will be given
      * a name based on the method it decorates and the suffix "Exceptions".
      */

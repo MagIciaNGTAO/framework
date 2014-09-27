@@ -57,7 +57,7 @@ public class MeteredInterceptor implements MethodInterceptor, ConstructorInterce
         Metered metric = executable.getAnnotation(Metered.class);
         String name = metricsUtil.computeName(executable, metric.absolute(), metric.name());
 
-        registery.meter(name).mark(metric.events());
+        registery.meter(name).mark(metric.value());
         return invocation.proceed();
     }
 }

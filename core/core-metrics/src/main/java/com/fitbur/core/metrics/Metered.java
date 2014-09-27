@@ -40,7 +40,7 @@ public @interface Metered {
     boolean absolute() default false;
 
     /**
-     * @return The number of events
+     * @return the number of events whose occurrence will be marked
      */
-    long events() default 1L;
+    long value() default 1L;
 }

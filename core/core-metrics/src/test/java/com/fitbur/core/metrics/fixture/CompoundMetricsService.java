@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Sharmarke Aden.
+ * Copyright 2014 Fitbur, Inc..
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,26 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.fitbur.core.metrics;
+package com.fitbur.core.metrics.fixture;
 
-import com.codahale.metrics.MetricRegistry;
-import com.fitbur.core.hk2.UndisposableFactory;
-import javax.inject.Singleton;
-import org.glassfish.hk2.api.Rank;
+import com.fitbur.core.metrics.Counted;
+import com.fitbur.core.metrics.Metered;
+import com.fitbur.core.metrics.Timed;
 import org.jvnet.hk2.annotations.Service;
 
 /**
  *
- * @author Sharmarke Aden
+ * @author saden
  */
 @Service
-public class MetricRegistryFactory implements UndisposableFactory<MetricRegistry> {
+public class CompoundMetricsService {
 
-    @Rank(Integer.MIN_VALUE)
-    @Singleton
-    @Override
-    public MetricRegistry provide() {
-        return new MetricRegistry();
+    @Timed
+    @Metered
+    @Counted
+    public void defaultCountedMeteredTimedMethod() {
+
     }
 
+    @Timed(name = "timed.method")
+    @Metered(name = "metered.method")
+    @Counted(name = "counted.method")
+    public void explictCountedMetertedTimedMethod() {
+
+    }
 }

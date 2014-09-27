@@ -31,10 +31,20 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR})
 public @interface Counted {
 
+    /**
+     * @return The name of the counter.
+     */
     String name() default "";
 
+    /**
+     * @return If {@code true}, use the given name as an absolute name. If
+     * {@code false}, use the given name relative to the annotated class.
+     */
     boolean absolute() default false;
 
+    /**
+     * @return the amount by which the counter will be increased or decreased
+     */
     long value() default 1L;
-    
+
 }
