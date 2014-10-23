@@ -21,6 +21,7 @@ import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 
 import static com.codahale.metrics.MetricRegistry.name;
+
 import com.fitbur.core.metrics.fixture.CompoundMetricsService;
 
 import javax.inject.Inject;
@@ -47,18 +48,21 @@ public class CompoundMetricsServiceNGTest {
         sut.defaultCountedMeteredTimedMethod();
     }
 
-    @Test
-    public void callToCountedMethodShouldBeCounted() {
+    @Test(expectedExceptions = Exception.class)
+    public void callToCountedMethodShouldBeCounted() throws Exception {
         sut.explictCountedMetertedTimedMethod();
         Counter counter = registry.counter(name(CompoundMetricsService.class, "counted.method"));
         Meter meter = registry.meter(name(CompoundMetricsService.class, "metered.method"));
         Timer timer = registry.timer(name(CompoundMetricsService.class, "timed.method"));
+        Meter exceptionMeter = registry.meter(name(CompoundMetricsService.class, "exception.method"));
         assertThat(counter).isNotNull();
         assertThat(counter.getCount()).isEqualTo(1);
         assertThat(meter).isNotNull();
         assertThat(meter.getCount()).isEqualTo(1);
         assertThat(timer).isNotNull();
         assertThat(timer.getCount()).isEqualTo(1);
+        assertThat(exceptionMeter).isNotNull();
+        assertThat(exceptionMeter.getCount()).isEqualTo(1);
     }
 
 }

@@ -16,8 +16,10 @@
 package com.fitbur.core.metrics.fixture;
 
 import com.fitbur.core.metrics.Counted;
+import com.fitbur.core.metrics.ExceptionMetered;
 import com.fitbur.core.metrics.Metered;
 import com.fitbur.core.metrics.Timed;
+
 import org.jvnet.hk2.annotations.Service;
 
 /**
@@ -27,17 +29,18 @@ import org.jvnet.hk2.annotations.Service;
 @Service
 public class CompoundMetricsService {
 
-    @Timed
-    @Metered
-    @Counted
-    public void defaultCountedMeteredTimedMethod() {
+	@Timed
+	@Metered
+	@Counted
+	public void defaultCountedMeteredTimedMethod() {
 
-    }
+	}
 
-    @Timed(name = "timed.method")
-    @Metered(name = "metered.method")
-    @Counted(name = "counted.method")
-    public void explictCountedMetertedTimedMethod() {
-
-    }
+	@Timed(name = "timed.method")
+	@Metered(name = "metered.method")
+	@Counted(name = "counted.method")
+	@ExceptionMetered(name = "exception.method")
+	public void explictCountedMetertedTimedMethod() throws Exception {
+		throw new Exception();
+	}
 }
